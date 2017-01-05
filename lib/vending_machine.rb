@@ -1,8 +1,7 @@
-
 class VendingMachine
 	attr_reader :inventory
 	def initialize
-		@inventory = []
+		@inventory = Array.new
 	end
 
 	def add_snack(snack)
@@ -21,5 +20,8 @@ class VendingMachine
 	end
 
 	def inventory_by_alphabet
+		@inventory.group_by do |snack|
+			snack.name[0]
+		end
 	end
 end
